@@ -72,9 +72,17 @@ select * from viddil_kadriv.EmployeeInfo where EmployeeInfo.TabelNumber = 1001;
 select * from viddil_kadriv.Job_Title where Job_Title.TabelNumber = 1001;
 select * from viddil_kadriv.Department where Department.TabelNumber = 1001;
 ---------------------------------------------------------------------------------------------------------------------------
+
+SELECT e.*, ei.DateOfBirth, ei.CityOfBirth, ei.PassportSeries, ei.PassportNumber, ei.HomeAdress, ei.MobilePhone, j.DateStartWork, j.JobTitle, d.Department
+FROM Employee e
+INNER JOIN EmployeeInfo ei ON e.TabelNumber = ei.TabelNumber
+INNER JOIN job_title j ON e.TabelNumber = j.TabelNumber
+INNER JOIN Department d ON e.TabelNumber = d.TabelNumber
+
+
+
 # Очищення БД при візиті Податкової ;)
-#drop table Employee;
-#drop table EmployeeInfo;
-#drop table Job_Title;
-#drop table Department;
-#drop database viddil_kadriv;
+-- drop table Employee;
+-- drop table Job_Title;
+-- drop table Department;
+-- drop database viddil_kadriv;
